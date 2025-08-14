@@ -1,0 +1,27 @@
+{
+    "ignoreTitles": [
+        "Office Hours",
+        "Live Session",
+        "Live Class Lesson",
+        "Live Class Session",
+        "*Live",
+        "* Live"
+    ],
+    "renameClass": {
+        "zearn math 4a - 25/26": "Math",
+        "general/ honors english 7a - 25/26": "English",
+        "zearn math 7a - 25/26": "Math",
+        "keyboarding - 25/26": "Keyboarding",
+        "social studies 7a - 25/26": "SocialStudies",
+        "general/ gifted science 7a - 25/26": "Science",
+        "social studies 4a - 25/26": "SocialStudies",
+        "multimedia design 1 - 25/26": "Multimedia",
+        "language arts 4a - 25/26": "LanguageArts",
+        "science 4a - 25/26": "Science",
+        "zearn math 3a - 25/26": "Math",
+        "language arts 3a - 25/26": "LanguageArts",
+        "elementary stem a": "STEM",
+        "elementary art": "Art",
+        "ila clubs 2025-2026": "Clubs"
+    }
+}

@@ -1,3 +1,7 @@
+import canvas_filters from "../canvas_filters.json" with { type: "json" };
+
+const titles = [...canvas_filters.ignoreTitles.map(t => t.toUpperCase())];
+
 const base = async (canvas_url, canvas_session, canvas_course, type) => {
     const myHeaders = new Headers();
     myHeaders.append("Cookie", `canvas_session=${canvas_session}`);
@@ -10,6 +14,8 @@ const base = async (canvas_url, canvas_session, canvas_course, type) => {
 
     const response = await fetch(`https://${canvas_url}/api/v1/calendar_events?per_page=100&type=${type}&context_codes%5B%5D=${canvas_course}&all_events=1&excludes%5B%5D=assignment&excludes%5B%5D=description&excludes%5B%5D=child_events`, requestOptions)
     
+    if (!response.ok) throw response.statusText;
+
     return await response.json();
 };
 
@@ -24,3 +30,23 @@ export const getSyllabus = async (canvas_url, canvas_session, canvas_course) => 
 
     return [...events, ...assignments, ...subAssignments];
 };
+
+export const getFilteredSyllabus = async (canvas_url, canvas_session, canvas_course) => {
+    const syllabus = await getSyllabus(canvas_url, canvas_session, canvas_course);
+
+    const final = [];
+
+    for (const item of syllabus) {
+        const title = item.title.toUpperCase();
+
+        if (titles.find(t => title.indexOf(t) !== -1)) continue;
+        
+        const context_name = item.context_name?.toLowerCase();
+
+        if (canvas_filters.renameClass[context_name]) item.context_name = canvas_filters.renameClass[context_name];
+
+        final.push(item);
+    }
+
+    return final;
+}

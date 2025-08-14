@@ -10,6 +10,8 @@ export const getProjects = async (ticktick_access_token) => {
 
     const response = await fetch("https://ticktick.com/open/v1/project", requestOptions);
 
+    if (!response.ok) throw response.statusText;
+
     return await response.json();
 }
 
@@ -24,6 +26,8 @@ export const getProjectData = async (ticktick_access_token, project_id) => {
     };
 
     const response = await fetch(`https://ticktick.com/open/v1/project/${project_id}/data`, requestOptions);
+
+    if (!response.ok) throw response.statusText;
 
     return await response.json();
 }
