@@ -1,0 +1,22 @@
+{
+  "name": "ticktick-canvas-importer",
+  "version": "1.0.0",
+  "description": "Imports Canvas items into TickTick as tasks",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shatindle/ticktick-canvas-importer.git"
+  },
+  "author": "@shane on Discord",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shatindle/ticktick-canvas-importer/issues"
+  },
+  "homepage": "https://github.com/shatindle/ticktick-canvas-importer#readme",
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  }
+}
